@@ -91,8 +91,9 @@ class Game {
       player.distance +=10
       player.update();
     }
-    if(player.distance > 3000){
-      gameState = 2;
+    if(keyIsDown(DOWN_ARROW) && player.index !== null){
+      player.distance -=10
+      player.update();
     }
 
     drawSprites();
