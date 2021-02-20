@@ -6,6 +6,7 @@ class Form {
     this.greeting = createElement('h2');
     this.title = createElement('h1');
     this.loading = createElement('h2');
+    this.reset = createButton('Reset')
 
   }
   hide(){
@@ -14,15 +15,17 @@ class Form {
     this.input.hide();
     this.title.hide();
     this.loading.hide();
+    
   }
 
   display(){
+    background(indexBackground);
     this.title.html("Racers : The racing game for all");
-    this.title.position(displayWidth/2 - 100, 0);
+    this.title.position(displayWidth/2 - 50, 0);
+    this.reset.position(displayWidth-100,20);
 
     this.input.position(displayWidth/2 - 40 , displayHeight/2 - 80);
     this.button.position(displayWidth/2 + 30, displayHeight/2);
-    
 
     this.button.mousePressed(()=>{
       this.input.hide();
@@ -36,8 +39,12 @@ class Form {
       this.greeting.position(displayWidth/2 - 70, displayHeight/4);
       this.loading.html("please wait searching players...");
       this.loading.position(displayWidth/3 - 70, displayHeight/2 + 100);
-  
     });
 
+    this.reset.mousePressed(()=>{
+      player.updateCount(0);
+      game.update(0);
+        });
+        
   }
 }
