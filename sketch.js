@@ -12,7 +12,7 @@ var bikes, bike1, bike2, bike3, bike4;
 
 var bike1img,bike2img,bike3img,bike4img,groundimg,trackjpg;
 
-var gameover;
+var youWin;
 
 function preload(){
   bike1img = loadImage('images/bike1.png');
@@ -23,7 +23,9 @@ function preload(){
   groundimg = loadImage('images/ground.png');
   trackjpg = loadImage('images/track.jpg');
 
-  gameover = loadImage('images/gameover.png');
+  youWin = loadImage('images/win background.png');
+
+  indexBackground = loadImage('images/poster.png')
 }
 
 function setup(){
@@ -43,8 +45,10 @@ function draw(){
     clear();
     game.play();
   }
-  if(gameState === 2){
-  textsize(25);
-  text("game over" , displayWidth/2 - 100, 0);
+
+  if(player.distance > 3000){
+background(youWin);
   }
+
+  drawSprites();
 }
